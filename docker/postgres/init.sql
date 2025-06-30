@@ -1,0 +1,1 @@
+CREATE DATABASE modelo_auth_blade_test;

@@ -1,0 +1,39 @@
+services:
+  modelo_auth_blade:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: modelo_auth_blade
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    working_dir: /var/www/html
+    command: bash -c "composer install && composer update && composer du && php artisan serve --host=0.0.0.0 --port=8000"
+    depends_on:
+      - modelo_auth_blade_db
+    networks:
+      - laravel
+
+  modelo_auth_blade_db:
+    image: postgres:15
+    container_name: modelo_auth_blade_db
+    restart: always
+    environment:
+      POSTGRES_DB: modelo_auth_blade
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - laravel
+
+networks:
+  laravel:
+
+volumes:
+  pgdata:
