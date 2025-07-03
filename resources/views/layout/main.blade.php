@@ -1,59 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Name</title>
 
-    <!-- Bootstrap & FontAwesome -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/png" />
 
-    <!-- Estilo global -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- Tailwind CSS compilado -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 </head>
-<body>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col">
 
-    <!-- Header / Navbar -->
-    <nav class="navbar navbar-expand-lg custom-navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white fw-semibold" href="{{ url('/home') }}">
-                <i class="fas fa-house me-2"></i>
-            </a>
-            <button class="navbar-toggler bg-secondary-subtle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav align-items-center gap-2">
-                    <!-- Links adicionais podem ser adicionados aqui -->
-                    <li class="nav-item">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
-                            @csrf
-                            <button type="submit" class="btn btn-outline-light">
-                                <i class="fas fa-sign-out-alt me-1"></i> Sair
-                            </button>
-                        </form>
-                    </li>
-                </ul>
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="{{ url('/home') }}" class="flex items-center text-white font-semibold">
+                    <i class="fas fa-house mr-2"></i> Home
+                </a>
+
+                <!-- Toggle (Mobile) - só visual, sem funcionalidade JS -->
+                <div class="md:hidden">
+                    <button class="text-gray-300 hover:text-white focus:outline-none" aria-label="Toggle menu">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Links Desktop -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                            class="flex items-center px-4 py-2 border border-white text-white rounded hover:bg-white hover:text-gray-800 transition">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Sair
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Conteúdo principal -->
-    <main class="container my-5">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-10 w-full">
         @yield('content')
     </main>
 
     <!-- Footer -->
-    <footer class="footer text-center py-4">
-        <div class="container">
+    <footer class="bg-gray-800 text-center py-4 text-gray-400 text-sm w-full">
+        <div class="max-w-7xl mx-auto">
+            <!-- Conteúdo do footer -->
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" crossorigin="anonymous"></script>
 </body>
 </html>

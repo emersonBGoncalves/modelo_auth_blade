@@ -1,5 +1,6 @@
+version: "3.8"
 services:
-  modelo_auth_blade:
+  app:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,7 +10,7 @@ services:
     ports:
       - "8000:8000"
     working_dir: /var/www/html
-    command: bash -c "composer install && composer update && composer du && php artisan serve --host=0.0.0.0 --port=8000"
+    command: bash -c "composer install && npm install && npx tailwindcss -i resources/css/app.css -o public/css/app.css --minify && php artisan serve --host=0.0.0.0 --port=8000"
     depends_on:
       - modelo_auth_blade_db
     networks:
@@ -34,6 +35,7 @@ services:
 
 networks:
   laravel:
+    driver: bridge
 
 volumes:
   pgdata:
