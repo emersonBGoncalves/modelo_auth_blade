@@ -1,0 +1,130 @@
+/* Reset geral para fundo escuro */
+body {
+    background-color: #343541;
+    color: #ffffff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar personalizada */
+.custom-navbar {
+    background-color: #202123;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #2e2f32;
+}
+
+.custom-navbar .navbar-brand {
+    font-size: 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .btn {
+    color: #ffffff !important;
+}
+
+.custom-navbar .btn:hover {
+    background-color: #10a37f;
+    border-color: #10a37f;
+    color: #ffffff;
+}
+
+/* Botão logout */
+.custom-navbar .btn-outline-light {
+    border: 1px solid #10a37f;
+    color: #ffffff;
+}
+
+.custom-navbar .btn-outline-light:hover {
+    background-color: #10a37f;
+    color: #ffffff;
+}
+
+/* Área de conteúdo ocupa o espaço vertical */
+main.container {
+    flex-grow: 1;
+}
+
+/* Footer */
+.footer {
+    background-color: #202123;
+    color: #cccccc;
+    border-top: 1px solid #2e2f32;
+    font-size: 0.9rem;
+}
+
+/* Reutilização do estilo de login-box etc */
+.login-box {
+    background-color: #444654;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 380px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.form-label {
+    color: #cccccc;
+}
+
+.form-control {
+    background-color: #3b3b3d;
+    border: 1px solid #5f6064;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: #3b3b3d;
+    color: #ffffff;
+    border-color: #10a37f;
+    box-shadow: 0 0 0 0.2rem rgba(16, 163, 127, 0.25);
+}
+
+.btn-primary {
+    background-color: #10a37f;
+    border-color: #10a37f;
+}
+
+.btn-primary:hover {
+    background-color: #0e8e6e;
+    border-color: #0e8e6e;
+}
+
+.btn-secondary {
+    background-color: #5f6064;
+    border-color: #5f6064;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #6f7074;
+}
+
+.alert-success,
+.alert-danger {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    border-radius: 6px;
+}
+
+a {
+    text-decoration: none;
+    color: #10a37f;
+}
+
+a:hover {
+    color: #0e8e6e;
+}
